@@ -1,8 +1,6 @@
 
 /////// Setting here ///////
-const number = 1000; // total number buy/sell
-const minSleep = 10; // 10s
-const maxSleep = 30; // 30s
+const number = 1000; // total number buy and sell
 ///////////////////////////
 
 let count = 0;
@@ -23,11 +21,11 @@ const Start = async () => {
 
     console.log(` - Click tab: ${trade_btn.textContent}`);// buy/sell button
     trade_btn.click();
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise(resolve => setTimeout(resolve, 200));
 
     console.log(` - Click button: ${document.getElementsByClassName('bg-baseBackgroundL1')[3].textContent}`); //max button
     document.getElementsByClassName('bg-baseBackgroundL1')[3].click(); 
-    await new Promise(resolve => setTimeout(resolve, 5000));
+    await new Promise(resolve => setTimeout(resolve, 400));
 
     console.log(`   === ${trade_btn.textContent} ===`);
     if (trade_btn.textContent === 'Buy'){
@@ -38,9 +36,7 @@ const Start = async () => {
         totalSell++
     }
 
-    const randomNumber = Math.floor(Math.random() * (maxSleep - minSleep + 1)) + minSleep; 
-    console.log(` - Waiting: ${randomNumber}s ...`);
-    await new Promise(resolve => setTimeout(resolve, randomNumber * 1000));
+    await new Promise(resolve => setTimeout(resolve, 150));
     
     count++;
 
